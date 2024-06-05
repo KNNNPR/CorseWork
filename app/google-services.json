@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "869268815068",
-    "project_id": "dbcorseworkprime",
-    "storage_bucket": "dbcorseworkprime.appspot.com"
+    "project_number": "422796032019",
+    "firebase_url": "https://corsework-8a8d1-default-rtdb.firebaseio.com",
+    "project_id": "corsework-8a8d1",
+    "storage_bucket": "corsework-8a8d1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:869268815068:android:4d397d219c2828638b0819",
+        "mobilesdk_app_id": "1:422796032019:android:4b51d705fce07648b167e6",
         "android_client_info": {
           "package_name": "com.example.corsework"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDm_PJgHwapZUOlZwsFq_Haxyb6PeAOKMM"
+          "current_key": "AIzaSyBeSUxgKCKHqq4gcRjbwE5v8L57471hBa4"
         }
       ],
       "services": {

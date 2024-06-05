@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.corsework" />
-                  <option name="mobileSdkAppId" value="1:869268815068:android:4d397d219c2828638b0819" />
-                  <option name="projectId" value="dbcorseworkprime" />
-                  <option name="projectNumber" value="869268815068" />
+                  <option name="mobileSdkAppId" value="1:422796032019:android:4b51d705fce07648b167e6" />
+                  <option name="projectId" value="corsework-8a8d1" />
+                  <option name="projectNumber" value="422796032019" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

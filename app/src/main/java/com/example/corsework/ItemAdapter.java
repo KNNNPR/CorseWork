@@ -1,25 +1,30 @@
 package com.example.corsework;
 
-
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.google.firebase.database.DatabaseReference;
+
 import java.util.List;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
 
     private List<Item> itemList;
+    private DatabaseReference databaseReference;
     private List<Item> cartItemList;
 
-    public ItemAdapter(List<Item> itemList, List<Item> cartItemList) {
+    public ItemAdapter(List<Item> itemList, DatabaseReference databaseReference, List<Item> cartItemList) {
         this.itemList = itemList;
+        this.databaseReference = databaseReference;
         this.cartItemList = cartItemList;
     }
 
@@ -33,12 +38,20 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         Item currentItem = itemList.get(position);
-        holder.imageView.setImageResource(currentItem.getImageResource());
+        Glide.with(holder.itemView.getContext())
+                .load(currentItem.getImageUrl())
+                .into(holder.imageView);
         holder.nameTextView.setText(currentItem.getName());
         holder.priceTextView.setText(currentItem.getPrice());
 
         holder.addToCartButton.setOnClickListener(v -> {
+            // Добавить товар в список товаров в корзине
             cartItemList.add(currentItem);
+//            // Создать новый экземпляр Item с уникальным ключом для базы данных
+//            String key = databaseReference.push().getKey();
+//            Item cartItem = new Item(currentItem.getImageUrl(), currentItem.getName(), currentItem.getPrice(), key);
+//            // Добавить новый экземпляр Item в базу данных
+//            databaseReference.child(key).setValue(cartItem);
         });
     }
 

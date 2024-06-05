@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
@@ -32,7 +35,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     @Override
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         Item currentItem = cartItemList.get(position);
-        holder.imageView.setImageResource(currentItem.getImageResource());
+
+        // Загрузить изображение с помощью Glide
+        Glide.with(holder.itemView.getContext())
+                .load(currentItem.getImageUrl())
+                .into(holder.imageView);
+
         holder.nameTextView.setText(currentItem.getName());
         holder.priceTextView.setText(currentItem.getPrice());
 
@@ -43,6 +51,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             onItemRemovedListener.onItemRemoved();
         });
     }
+
 
     @Override
     public int getItemCount() {
